@@ -55,11 +55,11 @@ const requestHandler = (req, res) => {
         req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             // output the created username
-            console.log(parsedBody);
-            res.statusCode = 302;
-            res.setHeader('Location', '/');
-            res.end();
+            console.log(parsedBody.split('=')[1]);
         })
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        res.end();
     }
 
     if(url === '/users') {
