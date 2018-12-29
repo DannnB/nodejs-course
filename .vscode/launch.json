@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/nodejs-basics/app.js",
+            "program": "${workspaceFolder}/express/app.js",
             "restart": true,
             "runtimeExecutable": "nodemon",
             "console": "integratedTerminal"
