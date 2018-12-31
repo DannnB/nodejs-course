@@ -1,10 +1,12 @@
+const path = require('path')
+
 const express = require('express');
 const bodyParser = require('body-parser')
 
 const app = express()
 
-const adminRoutes = require('./routes/admin.js')
-const shopRoutes = require('./routes/shop.js')
+const adminRoutes = require('./routes/admin')
+const shopRoutes = require('./routes/shop')
 
 // app.use((req, res, next) => {
     //for each request
@@ -14,16 +16,16 @@ const shopRoutes = require('./routes/shop.js')
 
 // calls next and intercepts all requests even GET requests...
 app.use(bodyParser.urlencoded({extended: false}))
-
+app.use(express.static(path.join(__dirname, 'public')))
 // order still matters
 // apart from when using .get .post as it matches more
-app.use(adminRoutes)
+app.use('/admin', adminRoutes)
 app.use(shopRoutes)
 
 // '/' as default as a catch all in this case
 app.use((req, res, next) => {
     res.status(404)
-    res.send('<h1>Page not found.</h1>')
+    res.sendFile(path.join(__dirname, 'views', '404.html'))
     // next(); // allows the request to continue to the next middleware in line
 })
 
