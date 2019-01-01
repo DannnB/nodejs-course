@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{docTitle}
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/main.css")
+    body
+        header
+            nav.navbar.navbar-expand-lg.navbar-liht.bg-light
+                a(class='navbar-brand', href='/') Shop
+                
+                button(
+                    class='navbar-toggler',
+                    type='button', 
+                    data-toggle='collapse', 
+                    data-target='#navbarNavDropdown', 
+                    aria-controls='navbarNavDropdown',
+                    aria-expanded='false',
+                    aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+
+                div#navbarNavdropdown.collapse.navbar-collapse
+                    ul.navbar-nav
+                        li.nav-item-nav
+                            a(class='nav-link', href='/') Home 
+                                span.sr-only (current)
+                        li.nav-item-dropdown
+                            a(
+                                class='nav-link dropdown-toggle', 
+                                href='#', 
+                                id='navbarDropdownMenuLink', 
+                                data-toggle='dropdown'
+                                aria-haspopup='true',
+                                aria-expanded='false') Admin
+                            div(class='dropdown-menu', aria-labelledby='navbarDropdownMenuLink')
+                                a(class='dropdown-item', href='/admin/add-product') Add Product                            
+                                
+        main.container
+            div(class='card', style='width: 18rem')
+                div.card-body 
+                    form(action='/admin/add-product', method='POST')
+                        h5.card-title Card Title
+                        div.form-group
+                            label(for='title') Title
+                                input#title.form-control(type='text', name='title')
+                        div.form-group
+                            label(for='description') Description
+                                textarea#description.form-control(name='description')
+                        div.form-group
+                            label(for='price') Price
+                                input#title.form-control(type='text', name='price')
+                        button(type='submit', class='btn btn-primary') Add Product
+                    small PREVIEW        
+                    hr
+                    img(
+                        class='card-img-top',
+                        src='http://placehold.it/400x200?text=Add-Product',
+                        alt='Card image cap')
+                    h5.card-title Product
+                    p.card-text Product Description
+                    a(class='btn btn-primary', href='#product') View Product
+
+
+
+script(
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js", 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN",
+    crossorigin="anonymous")
+script(
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", 
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q",
+    crossorigin="anonymous")
+script(
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
+    crossorigin="anonymous")
