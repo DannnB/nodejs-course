@@ -26,8 +26,8 @@ app.use(shopRoutes)
 
 // '/' as default as a catch all in this case
 app.use((req, res, next) => {
-    res.status(404)
-    res.sendFile(path.join(__dirname, 'views', '404.html'))
+    res.status(404).render('404', {docTitle: '404 - Page not found'});
+    // res.sendFile(path.join(__dirname, 'views', '404.html'))
     // next(); // allows the request to continue to the next middleware in line
 })
 

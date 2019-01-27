@@ -13,7 +13,7 @@ const products = []
 // '/add-product' will match before the catch all of '/'
 router.get('/add-product', (req, res, next) => {
     const products = adminData.products
-    res.render('add-product', {docTitle: 'Add Product'})
+    res.render('add-product', {docTitle: 'Add Product', path: '/admin/add-product'})
     // won't go any further than this as this middleware is met
 });
 
